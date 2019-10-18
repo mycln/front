@@ -23,10 +23,12 @@ export default new Router({
       name: 'front',
       component: Front,
       // props:true,
+      //要想一进入页面就让第一个子路由处于选中状态，可以给主路由加一个重定向的属性，把路径指向相应的子路由
+      redirect: '/front/all',
       //子路由 路径不写/
       children:[
         {
-          path:'/',
+          path:'all',
           component:LastArticle,
           // props:true
         },
@@ -71,8 +73,13 @@ export default new Router({
       path: '/backend',
       name: 'backend',
       component: Front,
+      redirect: '/backend/all',
         //子路由 路径不写/
         children:[
+            {
+                path:'all',
+                component:LastArticle,
+            },
             {
                 name:'java',
                 // path:'java/:linkKeyWord/:category',
@@ -92,19 +99,41 @@ export default new Router({
     {
       path: '/database',
       name: 'database',
-      component: Front
+      component: Front,
+        redirect: '/database/all',
+        //子路由 路径不写/
+        children:[
+            {
+                path:'all',
+                component:LastArticle,
+            }
+        ]
     },
     {
       path: '/other',
       name: 'other',
-      component: Front
+      component: Front,
+        redirect: '/other/all',
+        //子路由 路径不写/
+        children:[
+            {
+                path:'all',
+                component:LastArticle,
+            }
+        ]
+
     },
     {
         path: '/bigData',
         name: 'bigData',
         component: Front,
+        redirect: '/bigData/all',
         //子路由 路径不写/
         children:[
+            {
+                path:'all',
+                component:LastArticle,
+            },
             {
                 name:'hadoop',
                 // path:'hadoop/:linkKeyWord/:category',

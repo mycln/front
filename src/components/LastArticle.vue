@@ -9,7 +9,7 @@
         <div class="summary">
             <div class="sum" v-for="(article,index) in lastArticles" >
                 <!--<router-link class="title" :to="{name:'art',query:{id:article.id,categoryPid:$route.query.category_pid}}" tag='h5'>{{article.title}}</router-link>-->
-                <router-link class="title" :to="{name:'art',query:{id:article.id,categoryPid:category_pid}}" tag='h5'>{{article.title}}</router-link>
+                <router-link class="title" :to="{name:'art',query:{id:article.id,categoryPid:category_pid}}" tag='h5' active-class = "active">{{article.title}}</router-link>
                 <p class="word" v-html="article.content"></p>
                 <div class="count">
                     <span>{{article.utime | intDateFormat}}点</span>
@@ -143,6 +143,7 @@ export default {
     },
   watch:{
       $route(to,from){
+          this.page = 1;
           this.category_id = to.params.category;
       },
       //监听类别id,如果变化的话开始异步获取值,

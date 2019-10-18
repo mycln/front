@@ -46,19 +46,7 @@
           <div class="c-right">
             <!-- 初始化为 5篇最新文章 -->
             <div class="last-article">
-              <div v-if="$route.query.category == undefined">
-                <last-article :category_pid="$route.query.cate"></last-article>
-              </div>
-              <div v-if="$route.query.category">
                 <router-view/>
-              </div>
-
-              <!-- <div class="last" v-show="false">
-                <last-article></last-article>
-              </div>
-              <div class="article" v-show="true">
-                <v-article></v-article>
-              </div> -->
             </div>
           </div>
         </div>
